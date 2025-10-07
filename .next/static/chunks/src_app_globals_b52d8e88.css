@@ -552,6 +552,10 @@ body {
   margin-bottom: .25rem;
 }
 
+.mb-0\.5 {
+  margin-bottom: .125rem;
+}
+
 .mb-1 {
   margin-bottom: .25rem;
 }
@@ -570,10 +574,6 @@ body {
 
 .mb-8 {
   margin-bottom: 2rem;
-}
-
-.ml-2 {
-  margin-left: .5rem;
 }
 
 .ml-auto {
@@ -606,10 +606,6 @@ body {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.mb-0\.5 {
-  margin-bottom: .125rem;
 }
 
 .block {

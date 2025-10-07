@@ -346,7 +346,7 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ enhanceMedicineSearch(i
 }
 const enhanceMedicineSearchPrompt = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ai$2f$genkit$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ai"].definePrompt({
     name: 'enhanceMedicineSearchPrompt',
-    model: 'googleai/gemini-1.5-flash-latest',
+    model: 'googleai/gemini-2.5-flash-latest',
     input: {
         schema: EnhanceMedicineSearchInputSchema
     },
@@ -692,7 +692,9 @@ const GenerateMedicineDetailsInputSchema = __TURBOPACK__imported__module__$5b$pr
     contextDrugGroup: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The drug group, if known from the database.'),
     contextDrugType: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The drug type, if known from the database.'),
     contextHsnCode: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The HSN code, if known from the database.'),
-    contextSearchKey: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The search key, if known from the database.')
+    contextSearchKey: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The search key, if known from the database.'),
+    contextMrp: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The Maximum Retail Price (MRP), if known from the database.'),
+    contextUom: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The Unit of Measure (UOM), if known from the database.')
 });
 const GenerateMedicineDetailsOutputSchema = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].object({
     drugCode: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().describe('The drug code (Firebase key).'),
@@ -703,6 +705,8 @@ const GenerateMedicineDetailsOutputSchema = __TURBOPACK__imported__module__$5b$p
     drugType: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The drug type (from database if available).'),
     hsnCode: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The HSN code (from database if available).'),
     searchKey: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The search key (from database if available).'),
+    mrp: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The Maximum Retail Price (MRP) of the medicine.'),
+    uom: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().optional().describe('The Unit of Measure (UOM) for the medicine packaging, e.g., "10\'s", "15ml".'),
     usage: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().describe("Typical usage or indications for the medicine. Each point MUST start with '• ' (a bullet character followed by a space) and be on its own new line. For example:\n• For pain relief\n• Reduces fever"),
     manufacturer: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().describe("List a few common manufacturers of the medicine, specifically in India. Each point MUST start with '• ' and be on its own new line. For example:\n• Cipla\n• Sun Pharma"),
     dosage: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$genkit$2f$lib$2f$common$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["z"].string().describe("General dosage guidelines for the medicine. Each distinct guideline MUST be a separate bullet point on a new line, starting with '• '. For example:\n• Adults: 1 tablet\n• Children: Half tablet"),
@@ -730,6 +734,8 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateMedicineDetails
             drugType: input?.contextDrugType,
             hsnCode: input?.contextHsnCode,
             searchKey: input?.contextSearchKey,
+            mrp: input?.contextMrp,
+            uom: input?.contextUom,
             usage: t_fallback.infoNotAvailable,
             manufacturer: t_fallback.infoNotAvailable,
             dosage: t_fallback.infoNotAvailable,
@@ -753,6 +759,8 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateMedicineDetails
             drugType: result.drugType || input.contextDrugType,
             hsnCode: result.hsnCode || input.contextHsnCode,
             searchKey: result.searchKey || input.contextSearchKey,
+            mrp: result.mrp || input.contextMrp,
+            uom: result.uom || input.contextUom,
             usage: result.usage || t_fallback.infoNotAvailable,
             manufacturer: result.manufacturer || t_fallback.infoNotAvailable,
             dosage: result.dosage || t_fallback.infoNotAvailable,
@@ -784,6 +792,8 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateMedicineDetails
             drugType: input.contextDrugType,
             hsnCode: input.contextHsnCode,
             searchKey: input.contextSearchKey,
+            mrp: input.contextMrp,
+            uom: input.contextUom,
             usage: t_fallback.infoNotAvailable,
             manufacturer: t_fallback.infoNotAvailable,
             dosage: t_fallback.infoNotAvailable,
@@ -795,7 +805,7 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateMedicineDetails
 }
 const medicineDetailsPrompt = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ai$2f$genkit$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ai"].definePrompt({
     name: 'generateMedicineDetailsPrompt',
-    model: 'googleai/gemini-1.5-flash-latest',
+    model: 'googleai/gemini-2.5-flash-latest',
     input: {
         schema: GenerateMedicineDetailsInputSchema
     },
@@ -804,7 +814,7 @@ const medicineDetailsPrompt = __TURBOPACK__imported__module__$5b$project$5d2f$sr
     },
     prompt: `You are a highly knowledgeable pharmaceutical AI assistant. Your goal is to provide AI-generated medicine details (usage, manufacturer, dosage, sideEffects) in the specified language: {{language}}.
 Format all lists (usage, manufacturer, dosage, sideEffects) with each item on a NEW LINE, starting with '• ' (a bullet character followed by a space).
-The fields drugCode, drugName, saltName, drugCategory, drugGroup, drugType, hsnCode, and searchKey MUST be taken directly from the provided context if available. DO NOT generate or alter these fields if context for them is provided.
+The fields drugCode, drugName, saltName, drugCategory, drugGroup, drugType, hsnCode, searchKey, mrp, and uom MUST be taken directly from the provided context if available. DO NOT generate or alter these fields if context for them is provided.
 
 {{#if contextDrugName}}
 The user has provided context for a medicine from the database:
@@ -816,6 +826,8 @@ Salt Name (Composition): "{{contextSaltName}}"
 {{#if contextDrugType}}Type: "{{contextDrugType}}"{{/if}}
 {{#if contextHsnCode}}HSN Code: "{{contextHsnCode}}"{{/if}}
 {{#if contextSearchKey}}Search Key: "{{contextSearchKey}}"{{/if}}
+{{#if contextMrp}}MRP: "{{contextMrp}}"{{/if}}
+{{#if contextUom}}UOM: "{{contextUom}}"{{/if}}
 
 Your primary task is to use the provided 'Salt Name (Composition): "{{contextSaltName}}"' to generate the following details for the medicine (identified as "{{contextDrugName}}") in {{language}}:
 - usage: Provide typical usage/indications.
@@ -832,6 +844,8 @@ The output 'saltName' MUST be "{{contextSaltName}}".
 {{#if contextDrugType}}The output 'drugType' MUST be "{{contextDrugType}}".{{else}}The output 'drugType' field should be empty or omitted.{{/if}}
 {{#if contextHsnCode}}The output 'hsnCode' MUST be "{{contextHsnCode}}".{{else}}The output 'hsnCode' field should be empty or omitted.{{/if}}
 {{#if contextSearchKey}}The output 'searchKey' MUST be "{{contextSearchKey}}".{{else}}The output 'searchKey' field should be empty or omitted.{{/if}}
+{{#if contextMrp}}The output 'mrp' MUST be "{{contextMrp}}".{{else}}The output 'mrp' field should be empty or omitted.{{/if}}
+{{#if contextUom}}The output 'uom' MUST be "{{contextUom}}".{{else}}The output 'uom' field should be empty or omitted.{{/if}}
 
 If you cannot find specific information for any of the AI-generated fields (usage, manufacturer, dosage, sideEffects), PROVIDE AN EMPTY STRING for that field. Do NOT use phrases like 'Information not available' or 'Not found' yourself in these fields.
 
@@ -856,6 +870,7 @@ Then, provide the following AI-generated details for that identified medicine in
 - manufacturer
 - dosage
 - sideEffects
+- a typical 'mrp' and 'uom' (unit of measure, e.g., "10's", "15ml bottle") for this type of medicine in India.
 
 The output 'drugCode' should be a new unique identifier (e.g., starting with 'ai-gen-').
 The output 'drugName' field should be the identified drug name.
@@ -868,6 +883,8 @@ Example for searchTermOrName="Amoxicillin", language="en":
   drugCode: "ai-gen-{{timestamp}}" // Or similar unique ID
   drugName: "Amoxicillin"
   saltName: "Amoxicillin Trihydrate (e.g., 250mg or 500mg capsules)"
+  mrp: "₹30-₹70"
+  uom: "10 capsules"
   usage: "• Treats bacterial infections\n• Used for ear, nose, throat infections"
   manufacturer: "• Cipla Ltd.\n• Mankind Pharma"
   dosage: "• Adults: 250mg to 500mg every 8 hours"
@@ -898,6 +915,8 @@ const generateMedicineDetailsFlow = __TURBOPACK__imported__module__$5b$project$5
             drugType: input.contextDrugType,
             hsnCode: input.contextHsnCode,
             searchKey: input.contextSearchKey,
+            mrp: input.contextMrp,
+            uom: input.contextUom,
             usage: t_flow_fallback.infoNotAvailable,
             manufacturer: t_flow_fallback.infoNotAvailable,
             dosage: t_flow_fallback.infoNotAvailable,
@@ -921,6 +940,8 @@ const generateMedicineDetailsFlow = __TURBOPACK__imported__module__$5b$project$5
                 drugType: input.contextDrugType,
                 hsnCode: input.contextHsnCode,
                 searchKey: input.contextSearchKey,
+                mrp: input.contextMrp,
+                uom: input.contextUom,
                 usage: t_flow_fallback.infoNotAvailable,
                 manufacturer: t_flow_fallback.infoNotAvailable,
                 dosage: t_flow_fallback.infoNotAvailable,
@@ -944,6 +965,8 @@ const generateMedicineDetailsFlow = __TURBOPACK__imported__module__$5b$project$5
             drugType: input.contextDrugType || rawOutputFromAI.drugType,
             hsnCode: input.contextHsnCode || rawOutputFromAI.hsnCode,
             searchKey: input.contextSearchKey || rawOutputFromAI.searchKey,
+            mrp: input.contextMrp || rawOutputFromAI.mrp,
+            uom: input.contextUom || rawOutputFromAI.uom,
             usage: rawOutputFromAI.usage?.trim() || t_flow_fallback.infoNotAvailable,
             manufacturer: rawOutputFromAI.manufacturer?.trim() || t_flow_fallback.infoNotAvailable,
             dosage: rawOutputFromAI.dosage?.trim() || t_flow_fallback.infoNotAvailable,
@@ -971,6 +994,8 @@ const generateMedicineDetailsFlow = __TURBOPACK__imported__module__$5b$project$5
             drugType: input.contextDrugType,
             hsnCode: input.contextHsnCode,
             searchKey: input.contextSearchKey,
+            mrp: input.contextMrp,
+            uom: input.contextUom,
             usage: t_flow_fallback.infoNotAvailable,
             manufacturer: t_flow_fallback.infoNotAvailable,
             dosage: t_flow_fallback.infoNotAvailable,
