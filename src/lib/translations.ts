@@ -203,7 +203,7 @@ export const translations: Record<Language, TranslationKeys> = {
     drugTypeLabel: 'প্রকার',
     hsnCodeLabel: 'এইচএসএন কোড',
     searchKeyLabel: 'সার্চ কী',
-    mrpLabel: 'এমআরপি',
+mrpLabel: 'এমআরপি',
     uomLabel: 'ইউওএম',
     usageLabel: 'ব্যবহার',
     manufacturerLabel: 'প্রস্তুতকারক',
@@ -234,7 +234,7 @@ export const translations: Record<Language, TranslationKeys> = {
     errorAiFailedDetail: "এআই পরিষেবা থেকে আরও নির্দিষ্ট ত্রুটির বিবরণের জন্য অনুগ্রহ করে আপনার সার্ভার লগগুলি পরীক্ষা করুন। এটি নেটওয়ার্ক সমস্যা বা অন্যান্য API সমস্যার কারণে হতে পারে।",
     errorAiEnhancementSkipped: "এআই অনুসন্ধান বৃদ্ধি এড়িয়ে যাওয়া হয়েছে (সম্ভবত এআই অনুপলব্ধতার কারণে)। আপনার আসল ক্যোয়ারী ব্যবহার করা হচ্ছে।",
     errorAiModelNotFound: (modelName: string) => `"${modelName}" এআই মডেলটি খুঁজে পাওয়া যায়নি বা অ্যাক্সেসযোগ্য নয়। অনুগ্রহ করে মডেলের নাম এবং আপনার API কী অনুমতিগুলি পরীক্ষা করুন।`,
-    aiCouldNotEnhance: (itemName: string) => `ডাটাবেসে যা পাওয়া গেছে তার বাইরে এআই "${itemName}" এর জন্য আর কোনো বিবরণ দিতে পারেনি।`,
+aiCouldNotEnhance: (itemName: string) => `ডাটাবেসে যা পাওয়া গেছে তার বাইরে এআই "${itemName}" এর জন্য আর কোনো বিবরণ দিতে পারেনি।`,
     errorAiNotConfiguredOrModelForDetails: (itemName: string) => `API কী বা মডেল কনফিগারেশন সমস্যার কারণে "${itemName}" এর জন্য বিবরণ তৈরি করার এআই বৈশিষ্ট্যগুলি অনুপলব্ধ।`,
     errorAiFailedForDetails: (itemName: string) => `এআই "${itemName}" এর জন্য বিবরণ তৈরি করতে ব্যর্থ হয়েছে।`,
     errorAiDetailsCritical: (itemName: string) => `"${itemName}" এর জন্য এআই বিবরণ তৈরি করার চেষ্টা করার সময় একটি গুরুতর ত্রুটি ঘটেছে। অনুগ্রহ করে সার্ভার লগ পরীক্ষা করুন।`,
@@ -246,5 +246,3 @@ export const translations: Record<Language, TranslationKeys> = {
 };
 
 export const getTranslations = (lang: Language): TranslationKeys => translations[lang];
-
-    

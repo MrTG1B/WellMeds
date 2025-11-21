@@ -168,6 +168,8 @@ export default function MediSearchApp() {
                   contextDrugType: dbItem.drugType,
                   contextHsnCode: dbItem.hsnCode,
                   contextSearchKey: dbItem.searchKey,
+                  contextMrp: dbItem.mrp,
+                  contextUom: dbItem.uom,
                 });
 
                 if (aiDetails.source === 'ai_failed' || aiDetails.source === 'ai_unavailable') {
@@ -200,8 +202,8 @@ export default function MediSearchApp() {
                   drugType: dbItem.drugType || aiDetails.drugType,
                   hsnCode: dbItem.hsnCode || aiDetails.hsnCode,
                   searchKey: dbItem.searchKey || aiDetails.searchKey,
-                  mrp: dbItem.mrp, // Retain from DB if present
-                  uom: dbItem.uom, // Retain from DB if present
+                  mrp: dbItem.mrp || aiDetails.mrp,
+                  uom: dbItem.uom || aiDetails.uom,
                   usage: aiDetails.usage,
                   manufacturer: aiDetails.manufacturer,
                   dosage: aiDetails.dosage,
@@ -482,4 +484,3 @@ export default function MediSearchApp() {
     </div>
   );
 }
-
