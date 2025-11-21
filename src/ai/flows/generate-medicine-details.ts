@@ -11,7 +11,7 @@
  */
 
 import {ai} from '@/ai/genkit';
-import type { Language, Medicine } from '@/types';
+import type { Language } from '@/types';
 import { getTranslations } from '@/lib/translations';
 import {z} from 'genkit';
 
@@ -360,6 +360,3 @@ const generateMedicineDetailsFlow = ai.defineFlow(
     }
   }
 );
-
-
-    
