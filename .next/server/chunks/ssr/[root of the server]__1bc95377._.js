@@ -870,7 +870,7 @@ Then, provide the following AI-generated details for that identified medicine in
 - manufacturer
 - dosage
 - sideEffects
-- a typical 'mrp' and 'uom' (unit of measure, e.g., "10's", "15ml bottle") for this type of medicine in India.
+- a typical 'mrp' and 'uom' (unit of measure, e.g., "10\'s", "15ml bottle") for this type of medicine in India.
 
 The output 'drugCode' should be a new unique identifier (e.g., starting with 'ai-gen-').
 The output 'drugName' field should be the identified drug name.
