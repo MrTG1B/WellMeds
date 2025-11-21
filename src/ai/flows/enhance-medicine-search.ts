@@ -65,7 +65,7 @@ export async function enhanceMedicineSearch(input: EnhanceMedicineSearchInput): 
 
 const enhanceMedicineSearchPrompt = ai.definePrompt({
   name: 'enhanceMedicineSearchPrompt',
-  model: 'googleai/gemini-2.5-flash-latest', // Updated model
+  model: 'googleai/gemini-2.5-flash', // Corrected model
   input: {schema: EnhanceMedicineSearchInputSchema},
   output: {schema: EnhanceMedicineSearchOutputSchema},
   prompt: `You are an AI assistant for a medicine search application. Your primary goal is to help identify the medicine or code the user is looking for.

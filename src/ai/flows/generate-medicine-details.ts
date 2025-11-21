@@ -146,7 +146,7 @@ export async function generateMedicineDetails(input: GenerateMedicineDetailsInpu
 
 const medicineDetailsPrompt = ai.definePrompt({
   name: 'generateMedicineDetailsPrompt',
-  model: 'googleai/gemini-2.5-flash-latest',
+  model: 'googleai/gemini-2.5-flash', // Corrected model
   input: {schema: GenerateMedicineDetailsInputSchema},
   output: {schema: GenerateMedicineDetailsOutputSchema},
   prompt: `You are a highly knowledgeable pharmaceutical AI assistant. Your goal is to provide AI-generated medicine details (usage, manufacturer, dosage, sideEffects) in the specified language: {{language}}.
