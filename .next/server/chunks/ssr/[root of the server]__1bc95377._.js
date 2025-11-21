@@ -346,7 +346,7 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ enhanceMedicineSearch(i
 }
 const enhanceMedicineSearchPrompt = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ai$2f$genkit$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ai"].definePrompt({
     name: 'enhanceMedicineSearchPrompt',
-    model: 'googleai/gemini-2.5-flash-latest',
+    model: 'googleai/gemini-1.5-flash-latest',
     input: {
         schema: EnhanceMedicineSearchInputSchema
     },
@@ -805,7 +805,7 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateMedicineDetails
 }
 const medicineDetailsPrompt = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ai$2f$genkit$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ai"].definePrompt({
     name: 'generateMedicineDetailsPrompt',
-    model: 'googleai/gemini-2.5-flash-latest',
+    model: 'googleai/gemini-1.5-flash-latest',
     input: {
         schema: GenerateMedicineDetailsInputSchema
     },
