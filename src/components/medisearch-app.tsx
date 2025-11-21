@@ -1,6 +1,8 @@
 
 "use client";
 
+// Component Version: 1.1.0 - Force cache invalidation for hydration fix
+
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import type { Language, Medicine } from "@/types";
