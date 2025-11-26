@@ -451,16 +451,17 @@ export default function MediSearchApp() {
       </header>
        {/* Desktop/Tablet Header */}
       <header className="hidden md:flex w-full h-20 items-center justify-between px-8 fixed top-0 z-50 bg-white/80 backdrop-blur-lg border-b">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-3">
            <Image
               src="/images/logo_transparent.png"
               alt="WellMeds Logo"
-              width={40}
-              height={40}
+              width={50}
+              height={50}
               priority
               className="object-contain"
               data-ai-hint="logo health"
             />
+            <span className="font-bold text-2xl text-foreground">WellMeds</span>
         </Link>
         <div className="flex items-center gap-6 text-sm font-medium">
            <LanguageSelector
