@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
@@ -17,6 +18,10 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  experimental: {
+    // This is to allow cross-origin requests from the Firebase Studio dev environment.
+    allowedDevOrigins: ["**.¹.cloudworkstations.dev"],
   },
 };
 
