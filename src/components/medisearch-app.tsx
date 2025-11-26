@@ -1,7 +1,7 @@
 
 "use client";
 
-// Component Version: 1.2.0 - Add camera upload feature
+// Component Version: 2.0.0 - Mobile Redesign
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
@@ -17,6 +17,7 @@ import { SearchBar } from "@/components/medisearch/SearchBar";
 import { MedicineCard } from "@/components/medisearch/MedicineCard";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Loader2, AlertCircle, Info, RotateCcw, KeyRound, ServerCrash } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -426,18 +427,76 @@ export default function MediSearchApp() {
     }, 150);
   };
 
+  const QuickAccessChip = ({ label }: { label: string }) => (
+    <Badge
+      variant="outline"
+      className="cursor-pointer bg-accent text-accent-foreground border-transparent hover:bg-primary/20 transition-colors"
+      onClick={() => handleSuggestionClick(label)}
+    >
+      {label}
+    </Badge>
+  );
+
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-background">
-      <header className="w-full p-4 flex justify-end sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
+    <div className="flex flex-col items-center min-h-screen md:bg-background mobile-gradient-background">
+      <header className="w-full p-4 flex justify-end sticky top-0 z-50 md:bg-background/80 bg-transparent backdrop-blur-sm">
         <LanguageSelector
           selectedLanguage={selectedLanguage}
           onLanguageChange={handleLanguageChange}
           t={t}
         />
       </header>
+       {/* Mobile View */}
+      <main className="w-full flex-grow flex flex-col items-center space-y-6 px-4 pb-8 pt-2 sm:pt-6 md:hidden">
+        <div className="flex items-center justify-center mb-16" style={{ marginBottom: '60px' }}>
+             <Image
+                src="/images/logo_transparent.png"
+                alt="WellMeds Logo"
+                width={160}
+                height={160}
+                priority
+                className="object-contain"
+                data-ai-hint="logo health"
+            />
+        </div>
 
-      <main className="w-full flex flex-col items-center space-y-6 px-4 pb-8 pt-2 sm:pt-6">
+        <h1 className="text-3xl font-bold text-gray-800 text-center">{t.searchTitle}</h1>
+
+        <div className="w-full max-w-md">
+           <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            className="hidden"
+            accept="image/*"
+           />
+          <SearchBar
+            searchQuery={searchQuery}
+            onSearchQueryChange={handleSearchQueryChange}
+            onSubmit={handleSearchSubmit}
+            isLoading={isLoading}
+            t={t}
+            suggestions={suggestions}
+            showSuggestions={showSuggestions}
+            onSuggestionClick={handleSuggestionClick}
+            onInputFocus={handleInputFocus}
+            onInputBlur={handleInputBlur}
+            onCameraClick={handleCameraClick}
+          />
+          <p className="text-center text-sm text-gray-500 mt-4">{t.initialHelperText}</p>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+            <QuickAccessChip label="Antibiotics" />
+            <QuickAccessChip label="Vitamins" />
+            <QuickAccessChip label="First Aid" />
+            <QuickAccessChip label="Pain Relief" />
+        </div>
+      </main>
+
+      {/* Desktop View */}
+      <main className="hidden w-full md:flex flex-col items-center space-y-6 px-4 pb-8 pt-2 sm:pt-6">
         <div className="flex items-center justify-center mb-2">
              <Image
                 src="/images/logo_transparent.png"
@@ -534,7 +593,7 @@ export default function MediSearchApp() {
 
 
         {!isLoading && !searchAttempted && !aiConfigError && (
-            <div className="text-center p-4 text-muted-foreground">
+            <div className="text-center p-4 text-muted-foreground hidden md:block">
                 {t.initialHelperText}
             </div>
         )}

@@ -302,7 +302,7 @@ img, video {
 }
 
 :root {
-  --background: 0 0% 94.1%;
+  --background: 0 0% 96.1%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
   --card-foreground: 240 10% 3.9%;
@@ -314,12 +314,12 @@ img, video {
   --secondary-foreground: 240 5.9% 10%;
   --muted: 0 0% 85%;
   --muted-foreground: 240 3.8% 46.1%;
-  --accent: 200 53.3% 79.2%;
-  --accent-foreground: 240 5.9% 10%;
+  --accent: 180 80% 96%;
+  --accent-foreground: 180 100% 20%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 80%;
-  --input: 0 0% 100%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
   --ring: 180 100% 25.1%;
   --chart-1: 12 76% 61%;
   --chart-2: 173 58% 39%;
@@ -350,8 +350,8 @@ img, video {
   --secondary-foreground: 210 20% 98%;
   --muted: 215 28% 17%;
   --muted-foreground: 210 20% 60%;
-  --accent: 200 60% 50%;
-  --accent-foreground: 210 20% 98%;
+  --accent: 180 80% 15%;
+  --accent-foreground: 180 80% 85%;
   --destructive: 0 63% 31%;
   --destructive-foreground: 210 20% 98%;
   --border: 215 28% 17%;
@@ -454,6 +454,14 @@ body {
   left: .5rem;
 }
 
+.left-3 {
+  left: .75rem;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
 .left-\[50\%\] {
   left: 50%;
 }
@@ -464,6 +472,10 @@ body {
 
 .right-1 {
   right: .25rem;
+}
+
+.right-12 {
+  right: 3rem;
 }
 
 .right-2 {
@@ -558,6 +570,10 @@ body {
 
 .mb-1 {
   margin-bottom: .25rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
 }
 
 .mb-2 {
@@ -663,6 +679,10 @@ body {
 
 .h-12 {
   height: 3rem;
+}
+
+.h-14 {
+  height: 3.5rem;
 }
 
 .h-2 {
@@ -859,10 +879,6 @@ body {
 
 .min-w-5 {
   min-width: 1.25rem;
-}
-
-.min-w-\[100px\] {
-  min-width: 100px;
 }
 
 .min-w-\[12rem\] {
@@ -1197,6 +1213,10 @@ body {
   border-style: dashed;
 }
 
+.border-none {
+  border-style: none;
+}
+
 .border-\[--color-border\] {
   border-color: var(--color-border);
 }
@@ -1253,10 +1273,6 @@ body {
   background-color: hsl(var(--background));
 }
 
-.bg-background\/80 {
-  background-color: hsl(var(--background) / .8);
-}
-
 .bg-black\/80 {
   background-color: #000c;
 }
@@ -1307,6 +1323,11 @@ body {
 
 .bg-transparent {
   background-color: #0000;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gradient-to-br {
@@ -1436,12 +1457,28 @@ body {
   padding-bottom: 2rem;
 }
 
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
+.pl-12 {
+  padding-left: 3rem;
+}
+
 .pl-8 {
   padding-left: 2rem;
 }
 
+.pr-12 {
+  padding-right: 3rem;
+}
+
 .pr-2 {
   padding-right: .5rem;
+}
+
+.pr-20 {
+  padding-right: 5rem;
 }
 
 .pr-3 {
@@ -1478,10 +1515,6 @@ body {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pr-12 {
-  padding-right: 3rem;
 }
 
 .text-left {
@@ -1601,6 +1634,21 @@ body {
 
 .text-foreground\/80 {
   color: hsl(var(--foreground) / .8);
+}
+
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
 
 .text-muted-foreground {
@@ -1869,6 +1917,12 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+.mobile-gradient-background {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  background-image: linear-gradient(#fff 0%, #f0fafa 100%);
+}
+
 .file\:border-0::file-selector-button {
   border-width: 0;
 }
@@ -1954,6 +2008,10 @@ body {
 
 .hover\:bg-primary\/10:hover {
   background-color: hsl(var(--primary) / .1);
+}
+
+.hover\:bg-primary\/20:hover {
+  background-color: hsl(var(--primary) / .2);
 }
 
 .hover\:bg-primary\/80:hover {
@@ -2079,6 +2137,10 @@ body {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus-visible\:ring-primary\/50:focus-visible {
+  --tw-ring-color: hsl(var(--primary) / .5);
 }
 
 .focus-visible\:ring-ring:focus-visible {
@@ -2745,6 +2807,10 @@ body {
     display: flex;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-auto {
     height: auto;
   }
@@ -2761,12 +2827,20 @@ body {
     max-width: 32rem;
   }
 
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .md\:bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .md\:bg-background\/80 {
+    background-color: hsl(var(--background) / .8);
   }
 
   .md\:p-8 {
