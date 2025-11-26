@@ -11,10 +11,33 @@ body {
   background-image: linear-gradient(to bottom, #FFFFFF 0%, #F0FAFA 100%);
 }
 
+.desktop-background::before, .desktop-background::after {
+  content: '';
+  position: fixed;
+  border-radius: 9999px;
+  background-color: hsla(180, 100%, 25.1%, 0.05);
+  z-index: -10;
+  filter: blur(100px);
+}
+
+.desktop-background::before {
+  width: 400px;
+  height: 400px;
+  top: -150px;
+  right: -150px;
+}
+
+.desktop-background::after {
+  width: 500px;
+  height: 500px;
+  bottom: -200px;
+  left: -200px;
+}
+
 
 @layer base {
   :root {
-    --background: 0 0% 96.1%; /* Slightly off-white */
+    --background: 0 0% 100%; /* Changed to pure white for the clean look */
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;

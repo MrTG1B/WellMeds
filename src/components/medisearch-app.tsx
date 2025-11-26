@@ -1,10 +1,11 @@
 
 "use client";
 
-// Component Version: 2.0.0 - Mobile Redesign
+// Component Version: 2.1.0 - Desktop Redesign
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
+import Link from 'next/link';
 import { useRouter } from "next/navigation";
 import type { Language, Medicine } from "@/types";
 import { getTranslations, type TranslationKeys } from "@/lib/translations";
@@ -17,8 +18,8 @@ import { SearchBar } from "@/components/medisearch/SearchBar";
 import { MedicineCard } from "@/components/medisearch/MedicineCard";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Loader2, AlertCircle, Info, RotateCcw, KeyRound, ServerCrash } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Loader2, AlertCircle, Info, RotateCcw, KeyRound, ServerCrash, Pill, HeartPulse, Shield, Stethoscope } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 
@@ -427,43 +428,80 @@ export default function MediSearchApp() {
     }, 150);
   };
 
-  const QuickAccessChip = ({ label }: { label: string }) => (
-    <Badge
-      variant="outline"
-      className="cursor-pointer bg-accent text-accent-foreground border-transparent hover:bg-primary/20 transition-colors"
+  const QuickAccessChip = ({ label, icon: Icon }: { label: string, icon: React.ElementType }) => (
+    <Card 
+      className="cursor-pointer bg-accent/50 border-transparent hover:bg-primary/20 hover:shadow-lg transition-all text-accent-foreground p-4 flex flex-col items-center justify-center text-center"
       onClick={() => handleSuggestionClick(label)}
     >
-      {label}
-    </Badge>
+      <Icon className="h-8 w-8 mb-2 text-primary"/>
+      <span className="font-semibold text-sm">{label}</span>
+    </Card>
   );
 
 
   return (
-    <div className="flex flex-col items-center min-h-screen md:bg-background mobile-gradient-background">
-      <header className="w-full p-4 flex justify-end sticky top-0 z-50 md:bg-background/80 bg-transparent backdrop-blur-sm">
+    <div className="flex flex-col min-h-screen md:bg-white mobile-gradient-background md:desktop-background">
+      {/* Mobile Header */}
+      <header className="md:hidden w-full p-4 flex justify-end sticky top-0 z-50 bg-transparent backdrop-blur-sm">
         <LanguageSelector
           selectedLanguage={selectedLanguage}
           onLanguageChange={handleLanguageChange}
           t={t}
         />
       </header>
-       {/* Mobile View */}
-      <main className="w-full flex-grow flex flex-col items-center space-y-6 px-4 pb-8 pt-2 sm:pt-6 md:hidden">
-        <div className="flex items-center justify-center mb-16" style={{ marginBottom: '60px' }}>
-             <Image
-                src="/images/logo_transparent.png"
-                alt="WellMeds Logo"
-                width={160}
-                height={160}
-                priority
-                className="object-contain"
-                data-ai-hint="logo health"
+       {/* Desktop/Tablet Header */}
+      <header className="hidden md:flex w-full h-20 items-center justify-between px-8 fixed top-0 z-50 bg-white/80 backdrop-blur-lg border-b">
+        <Link href="/" className="flex items-center gap-2">
+           <Image
+              src="/images/logo_transparent.png"
+              alt="WellMeds Logo"
+              width={40}
+              height={40}
+              priority
+              className="object-contain"
+              data-ai-hint="logo health"
             />
+            <span className="font-bold text-xl text-foreground">WellMeds</span>
+        </Link>
+        <div className="flex items-center gap-6 text-sm font-medium">
+          <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">Home</Link>
+          <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">Browse Medicines</Link>
+          <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">About</Link>
+          <Button variant="outline" size="sm">Login</Button>
+           <LanguageSelector
+            selectedLanguage={selectedLanguage}
+            onLanguageChange={handleLanguageChange}
+            t={t}
+          />
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="w-full flex-grow flex flex-col items-center justify-center space-y-6 px-4 pb-8 pt-2 sm:pt-6">
+        
+        {/* Hero Section */}
+        <div className="flex flex-col items-center justify-center text-center">
+            {/* Logo for mobile */}
+            <div className="md:hidden mb-16" style={{ marginBottom: '60px' }}>
+                <Image
+                    src="/images/logo_transparent.png"
+                    alt="WellMeds Logo"
+                    width={160}
+                    height={160}
+                    priority
+                    className="object-contain"
+                    data-ai-hint="logo health"
+                />
+            </div>
+            
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 text-center tracking-tight">
+                {t.searchTitle}
+            </h1>
+             <p className="md:hidden text-center text-sm text-gray-500 mt-4">{t.initialHelperText}</p>
         </div>
 
-        <h1 className="text-3xl font-bold text-gray-800 text-center">{t.searchTitle}</h1>
 
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-md md:max-w-lg lg:max-w-xl">
            <input
             type="file"
             ref={fileInputRef}
@@ -484,54 +522,17 @@ export default function MediSearchApp() {
             onInputBlur={handleInputBlur}
             onCameraClick={handleCameraClick}
           />
-          <p className="text-center text-sm text-gray-500 mt-4">{t.initialHelperText}</p>
         </div>
-
-        <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-            <QuickAccessChip label="Antibiotics" />
-            <QuickAccessChip label="Vitamins" />
-            <QuickAccessChip label="First Aid" />
-            <QuickAccessChip label="Pain Relief" />
+        
+        {/* Quick Access Section */}
+        <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl pt-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <QuickAccessChip label="Antibiotics" icon={Shield} />
+              <QuickAccessChip label="Vitamins" icon={HeartPulse}/>
+              <QuickAccessChip label="First Aid" icon={Stethoscope} />
+              <QuickAccessChip label="Pain Relief" icon={Pill} />
+          </div>
         </div>
-      </main>
-
-      {/* Desktop View */}
-      <main className="hidden w-full md:flex flex-col items-center space-y-6 px-4 pb-8 pt-2 sm:pt-6">
-        <div className="flex items-center justify-center mb-2">
-             <Image
-                src="/images/logo_transparent.png"
-                alt="WellMeds Logo"
-                width={320}
-                height={320}
-                priority
-                className="object-contain"
-                data-ai-hint="logo health"
-            />
-        </div>
-
-        <section className="w-full max-w-lg p-6 bg-card rounded-xl shadow-2xl">
-          <h2 className="text-2xl font-semibold text-center mb-6 text-foreground">{t.searchTitle}</h2>
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleFileChange}
-            className="hidden"
-            accept="image/*"
-          />
-          <SearchBar
-            searchQuery={searchQuery}
-            onSearchQueryChange={handleSearchQueryChange}
-            onSubmit={handleSearchSubmit}
-            isLoading={isLoading}
-            t={t}
-            suggestions={suggestions}
-            showSuggestions={showSuggestions}
-            onSuggestionClick={handleSuggestionClick}
-            onInputFocus={handleInputFocus}
-            onInputBlur={handleInputBlur}
-            onCameraClick={handleCameraClick}
-          />
-        </section>
 
         {aiConfigError && !isLoading && (
           <Alert variant="destructive" className="w-full max-w-lg shadow-md">
@@ -576,7 +577,7 @@ export default function MediSearchApp() {
         )}
 
         {!isLoading && !error && searchResults && searchResults.length > 0 && (
-          <section className="w-full mt-0 animate-fadeIn space-y-6 flex flex-col items-center">
+          <section className="w-full mt-8 animate-fadeIn space-y-6 flex flex-col items-center">
             {searchResults.map(medicine => (
               <MedicineCard key={medicine.drugCode} medicine={medicine} t={t} />
             ))}
@@ -584,20 +585,12 @@ export default function MediSearchApp() {
         )}
 
         {!isLoading && !error && searchResults && searchResults.length === 0 && searchAttempted && !aiConfigError && (
-            <Alert className="w-full max-w-lg shadow-md">
+            <Alert className="w-full max-w-lg shadow-md mt-8">
                 <Info className="h-5 w-5" />
                 <AlertTitle>{t.noResultsTitle}</AlertTitle>
                 <AlertDescription>{t.noResults}</AlertDescription>
             </Alert>
         )}
-
-
-        {!isLoading && !searchAttempted && !aiConfigError && (
-            <div className="text-center p-4 text-muted-foreground hidden md:block">
-                {t.initialHelperText}
-            </div>
-        )}
-
       </main>
 
       <footer className="mt-auto pt-8 pb-4 text-center text-sm text-muted-foreground">
