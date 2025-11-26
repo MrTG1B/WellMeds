@@ -464,10 +464,6 @@ export default function MediSearchApp() {
             <span className="font-bold text-xl text-foreground">WellMeds</span>
         </Link>
         <div className="flex items-center gap-6 text-sm font-medium">
-          <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">Home</Link>
-          <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">Browse Medicines</Link>
-          <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">About</Link>
-          <Button variant="outline" size="sm">Login</Button>
            <LanguageSelector
             selectedLanguage={selectedLanguage}
             onLanguageChange={handleLanguageChange}
