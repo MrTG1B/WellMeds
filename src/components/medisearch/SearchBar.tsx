@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -45,37 +44,40 @@ export function SearchBar({
   return (
     <div className="relative w-full max-w-lg">
       <form onSubmit={onSubmit} className="flex w-full items-center space-x-2">
-        <Input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => onSearchQueryChange(e.target.value)}
-          onFocus={onInputFocus}
-          onBlur={onInputBlur}
-          placeholder={t.searchPlaceholder}
-          className="flex-grow text-base"
-          aria-label={t.searchPlaceholder}
-          disabled={isLoading}
-          autoComplete="off" // Disable browser autocomplete to prefer our suggestions
-        />
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                onClick={onCameraClick}
-                disabled={isLoading}
-                aria-label={t.uploadPrescriptionTooltip}
-              >
-                <Camera className="h-5 w-5" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>{t.uploadPrescriptionTooltip}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <div className="relative flex-grow">
+          <Input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => onSearchQueryChange(e.target.value)}
+            onFocus={onInputFocus}
+            onBlur={onInputBlur}
+            placeholder={t.searchPlaceholder}
+            className="pr-12 text-base" // Add padding to the right for the camera icon
+            aria-label={t.searchPlaceholder}
+            disabled={isLoading}
+            autoComplete="off"
+          />
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  onClick={onCameraClick}
+                  disabled={isLoading}
+                  aria-label={t.uploadPrescriptionTooltip}
+                  className="absolute right-1 top-1/2 h-8 w-8 -translate-y-1/2 text-muted-foreground hover:text-primary"
+                >
+                  <Camera className="h-5 w-5" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{t.uploadPrescriptionTooltip}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
 
         <Button type="submit" disabled={isLoading || !searchQuery.trim()} className="min-w-[100px]">
           {isLoading ? (
