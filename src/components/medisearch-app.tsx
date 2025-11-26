@@ -461,7 +461,6 @@ export default function MediSearchApp() {
               className="object-contain"
               data-ai-hint="logo health"
             />
-            <span className="font-bold text-xl text-foreground">WellMeds</span>
         </Link>
         <div className="flex items-center gap-6 text-sm font-medium">
            <LanguageSelector
