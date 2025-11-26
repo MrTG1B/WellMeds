@@ -1,14 +1,16 @@
 
 "use client";
 
-// Component Version: 1.1.0 - Force cache invalidation for hydration fix
+// Component Version: 1.2.0 - Add camera upload feature
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import type { Language, Medicine } from "@/types";
 import { getTranslations, type TranslationKeys } from "@/lib/translations";
 import { enhanceMedicineSearch, type EnhanceMedicineSearchOutput } from "@/ai/flows/enhance-medicine-search";
 import { generateMedicineDetails } from "@/ai/flows/generate-medicine-details";
+import { extractMedicinesFromImage } from "@/ai/flows/extract-medicines-from-image";
 import { fetchMedicineByName, fetchSuggestions } from "@/lib/mockApi";
 import { LanguageSelector } from "@/components/medisearch/LanguageSelector";
 import { SearchBar } from "@/components/medisearch/SearchBar";
@@ -34,6 +36,9 @@ export default function MediSearchApp() {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
 
   const { toast } = useToast();
 
@@ -56,6 +61,62 @@ export default function MediSearchApp() {
     setSuggestions([]);
     setShowSuggestions(false);
   }, []);
+
+  const handleCameraClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setIsLoading(true);
+    setLoadingMessage("Reading and analyzing prescription...");
+    setError(null);
+    setSearchResults(null);
+    setSearchAttempted(true);
+
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = async () => {
+      try {
+        const imageDataUri = reader.result as string;
+        const result = await extractMedicinesFromImage({ imageDataUri });
+        
+        if (result.medicineNames.length > 0) {
+          const params = new URLSearchParams();
+          params.set('medicines', JSON.stringify(result.medicineNames));
+          params.set('lang', selectedLanguage);
+          router.push(`/results?${params.toString()}`);
+        } else {
+          toast({
+            title: "No Medicines Found",
+            description: "The AI could not identify any medicine names in the image.",
+            variant: "destructive",
+          });
+          setIsLoading(false);
+        }
+      } catch (e: any) {
+        console.error("Error processing image:", e);
+        setError("Failed to analyze the prescription image.");
+        toast({
+          title: "Image Analysis Failed",
+          description: e.message || "An unexpected error occurred.",
+          variant: "destructive",
+        });
+        setIsLoading(false);
+      }
+    };
+    reader.onerror = () => {
+        setError("Failed to read the image file.");
+        setIsLoading(false);
+    };
+
+    // Reset file input to allow uploading the same file again
+    event.target.value = "";
+  };
+
 
   const performSearchLogic = async (termToSearch: string) => {
     if (!termToSearch.trim()) {
@@ -390,6 +451,13 @@ export default function MediSearchApp() {
 
         <section className="w-full max-w-lg p-6 bg-card rounded-xl shadow-2xl">
           <h2 className="text-2xl font-semibold text-center mb-6 text-foreground">{t.searchTitle}</h2>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            className="hidden"
+            accept="image/*"
+          />
           <SearchBar
             searchQuery={searchQuery}
             onSearchQueryChange={handleSearchQueryChange}
@@ -401,6 +469,7 @@ export default function MediSearchApp() {
             onSuggestionClick={handleSuggestionClick}
             onInputFocus={handleInputFocus}
             onInputBlur={handleInputBlur}
+            onCameraClick={handleCameraClick}
           />
         </section>
 

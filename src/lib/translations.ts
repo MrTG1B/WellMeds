@@ -60,6 +60,7 @@ export type TranslationKeys = {
   copiedToClipboardDescription: (fieldName: string, value: string) => string;
   copyFailedTitle: string;
   copyFailedDescription: string;
+  uploadPrescriptionTooltip: string;
 };
 
 export const translations: Record<Language, TranslationKeys> = {
@@ -122,6 +123,7 @@ export const translations: Record<Language, TranslationKeys> = {
     copiedToClipboardDescription: (fieldName: string, value: string) => `${fieldName}: "${value}" copied.`,
     copyFailedTitle: "Copy Failed",
     copyFailedDescription: "Could not copy text to clipboard. Please try again.",
+    uploadPrescriptionTooltip: "Upload a prescription image",
   },
   hi: {
     appName: 'वेलमेड्स',
@@ -182,6 +184,7 @@ export const translations: Record<Language, TranslationKeys> = {
     copiedToClipboardDescription: (fieldName: string, value: string) => `${fieldName}: "${value}" कॉपी किया गया।`,
     copyFailedTitle: "कॉपी विफल",
     copyFailedDescription: "टेक्स्ट को क्लिपबोर्ड पर कॉपी नहीं किया जा सका। कृपया पुनः प्रयास करें।",
+    uploadPrescriptionTooltip: "प्रिस्क्रिप्शन छवि अपलोड करें",
   },
   bn: {
     appName: 'ওয়েলমেডস',
@@ -235,13 +238,14 @@ mrpLabel: 'এমআরপি',
     errorAiEnhancementSkipped: "এআই অনুসন্ধান বৃদ্ধি এড়িয়ে যাওয়া হয়েছে (সম্ভবত এআই অনুপলব্ধতার কারণে)। আপনার আসল ক্যোয়ারী ব্যবহার করা হচ্ছে।",
     errorAiModelNotFound: (modelName: string) => `"${modelName}" এআই মডেলটি খুঁজে পাওয়া যায়নি বা অ্যাক্সেসযোগ্য নয়। অনুগ্রহ করে মডেলের নাম এবং আপনার API কী অনুমতিগুলি পরীক্ষা করুন।`,
 aiCouldNotEnhance: (itemName: string) => `ডাটাবেসে যা পাওয়া গেছে তার বাইরে এআই "${itemName}" এর জন্য আর কোনো বিবরণ দিতে পারেনি।`,
-    errorAiNotConfiguredOrModelForDetails: (itemName: string) => `API কী বা মডেল কনফিগারেশন সমস্যার কারণে "${itemName}" এর জন্য বিবরণ তৈরি করার এআই বৈশিষ্ট্যগুলি অনুপলব্ধ।`,
+    errorAiNotConfiguredOrModelForDetails: (itemName: string) => `API কী বা মডেল কনফিগারেশন সমস্যার কারণে "${itemName}" এর জন্য বিবরণ তৈরি করার এআই বৈশিষ্ট্যগুলি अनुपলব্ধ।`,
     errorAiFailedForDetails: (itemName: string) => `এআই "${itemName}" এর জন্য বিবরণ তৈরি করতে ব্যর্থ হয়েছে।`,
     errorAiDetailsCritical: (itemName: string) => `"${itemName}" এর জন্য এআই বিবরণ তৈরি করার চেষ্টা করার সময় একটি গুরুতর ত্রুটি ঘটেছে। অনুগ্রহ করে সার্ভার লগ পরীক্ষা করুন।`,
     copiedToClipboardTitle: "ক্লিপবোর্ডে কপি করা হয়েছে",
     copiedToClipboardDescription: (fieldName: string, value: string) => `${fieldName}: "${value}" কপি করা হয়েছে।`,
     copyFailedTitle: "কপি ব্যর্থ হয়েছে",
     copyFailedDescription: "ক্লিপবোর্ডে টেক্সট কপি করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।",
+    uploadPrescriptionTooltip: "প্রিসক্রিপশন ছবি আপলোড করুন",
   },
 };
 
