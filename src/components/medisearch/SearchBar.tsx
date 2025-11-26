@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -52,7 +53,7 @@ export function SearchBar({
             onFocus={onInputFocus}
             onBlur={onInputBlur}
             placeholder={t.searchPlaceholder}
-            className="pr-12 text-base" // Add padding to the right for the camera icon
+            className="pr-12 text-base" 
             aria-label={t.searchPlaceholder}
             disabled={isLoading}
             autoComplete="off"
