@@ -455,8 +455,8 @@ export default function MediSearchApp() {
            <Image
               src="/images/logo_transparent.png"
               alt="WellMeds Logo"
-              width={50}
-              height={50}
+              width={100}
+              height={100}
               priority
               className="object-contain"
               data-ai-hint="logo health"
