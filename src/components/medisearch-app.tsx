@@ -398,11 +398,12 @@ export default function MediSearchApp() {
     if (query.length > 1) {
       debounceTimeoutRef.current = setTimeout(async () => {
         try {
+            // This function fetches suggestions directly from the database, not AI.
             const fetchedSuggestions = await fetchSuggestions(query);
             setSuggestions(fetchedSuggestions);
             setShowSuggestions(fetchedSuggestions.length > 0);
         } catch (e) {
-            console.error("[MediSearchApp] Failed to fetch suggestions:", e);
+            console.error("[MediSearchApp] Failed to fetch database suggestions:", e);
             setSuggestions([]);
             setShowSuggestions(false);
         }
