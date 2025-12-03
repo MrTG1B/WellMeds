@@ -1171,6 +1171,10 @@ body {
   gap: .5rem;
 }
 
+.gap-3 {
+  gap: .75rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -1181,10 +1185,6 @@ body {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-3 {
-  gap: .75rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1674,11 +1674,6 @@ body {
   line-height: 1.25rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-xs {
   font-size: .75rem;
   line-height: 1rem;
@@ -1747,10 +1742,6 @@ body {
 
 .text-foreground\/50 {
   color: hsl(var(--foreground) / .5);
-}
-
-.text-foreground\/70 {
-  color: hsl(var(--foreground) / .7);
 }
 
 .text-foreground\/80 {
