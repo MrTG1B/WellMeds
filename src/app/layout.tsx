@@ -15,11 +15,52 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'WellMeds - Your Medicine Information Hub',
-  description: 'Search for medicine details by name, enhanced by AI with WellMeds. Supports multiple languages.',
-  keywords: 'medicine, search, pharmacy, health, AI, multilingual, Paracetamol, Amoxicillin, WellMeds',
+  title: 'WellMeds - AI-Powered Medicine Search and Information',
+  description: 'Instantly search over 900 medicines by name, composition, or by scanning a prescription. WellMeds uses AI to provide detailed information on usage, dosage, and side effects in multiple languages.',
+  keywords: [
+    'Medicine search', 'Online pharmacy', 'Drug information', 'AI medicine finder',
+    'Prescription scanner', 'Medicine details', 'Salt composition', 'WellMeds',
+    'Paracetamol', 'Ibuprofen', 'Amoxicillin', 'Health app', 'PWA', 'Indian medicines'
+  ],
+  creator: 'MrTG1B',
+  publisher: 'MrTG1B',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  googleBot: {
+    index: true,
+    follow: true,
+    'max-video-preview': -1,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+  },
+  openGraph: {
+    title: 'WellMeds - AI-Powered Medicine Search',
+    description: 'Scan prescriptions or search for medicine details instantly. AI-enhanced information in English, Hindi, and Bengali.',
+    url: 'https://wellmed.vercel.app/',
+    siteName: 'WellMeds',
+    images: [
+      {
+        url: 'https://wellmed.vercel.app/images/logo_transparent.png', // Assuming you have a banner image
+        width: 1200,
+        height: 630,
+        alt: 'WellMeds Logo and Tagline',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'WellMeds - Instant, AI-Powered Medicine Information',
+    description: 'Your intelligent PWA for searching medicines by name, composition, or prescription scan.',
+    images: ['https://wellmed.vercel.app/images/logo_transparent.png'],
+  },
   icons: {
-    icon: '/images/logo.png', // Updated to use the logo from public/images
+    icon: '/images/logo.png',
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
   }
 };
 

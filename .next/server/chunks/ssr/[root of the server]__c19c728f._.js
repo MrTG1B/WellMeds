@@ -119,11 +119,65 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$t
 ;
 ;
 const metadata = {
-    title: 'WellMeds - Your Medicine Information Hub',
-    description: 'Search for medicine details by name, enhanced by AI with WellMeds. Supports multiple languages.',
-    keywords: 'medicine, search, pharmacy, health, AI, multilingual, Paracetamol, Amoxicillin, WellMeds',
+    title: 'WellMeds - AI-Powered Medicine Search and Information',
+    description: 'Instantly search over 900 medicines by name, composition, or by scanning a prescription. WellMeds uses AI to provide detailed information on usage, dosage, and side effects in multiple languages.',
+    keywords: [
+        'Medicine search',
+        'Online pharmacy',
+        'Drug information',
+        'AI medicine finder',
+        'Prescription scanner',
+        'Medicine details',
+        'Salt composition',
+        'WellMeds',
+        'Paracetamol',
+        'Ibuprofen',
+        'Amoxicillin',
+        'Health app',
+        'PWA',
+        'Indian medicines'
+    ],
+    creator: 'MrTG1B',
+    publisher: 'MrTG1B',
+    robots: {
+        index: true,
+        follow: true
+    },
+    googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1
+    },
+    openGraph: {
+        title: 'WellMeds - AI-Powered Medicine Search',
+        description: 'Scan prescriptions or search for medicine details instantly. AI-enhanced information in English, Hindi, and Bengali.',
+        url: 'https://wellmed.vercel.app/',
+        siteName: 'WellMeds',
+        images: [
+            {
+                url: 'https://wellmed.vercel.app/images/logo_transparent.png',
+                width: 1200,
+                height: 630,
+                alt: 'WellMeds Logo and Tagline'
+            }
+        ],
+        locale: 'en_US',
+        type: 'website'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'WellMeds - Instant, AI-Powered Medicine Information',
+        description: 'Your intelligent PWA for searching medicines by name, composition, or prescription scan.',
+        images: [
+            'https://wellmed.vercel.app/images/logo_transparent.png'
+        ]
+    },
     icons: {
-        icon: '/images/logo.png'
+        icon: '/images/logo.png',
+        shortcut: '/images/logo.png',
+        apple: '/images/logo.png'
     }
 };
 function RootLayout({ children }) {
@@ -138,7 +192,7 @@ function RootLayout({ children }) {
                         href: "/manifest.json"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 34,
+                        lineNumber: 75,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -146,7 +200,7 @@ function RootLayout({ children }) {
                         content: "#008080"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 35,
+                        lineNumber: 76,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -154,7 +208,7 @@ function RootLayout({ children }) {
                         content: "yes"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 36,
+                        lineNumber: 77,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -162,7 +216,7 @@ function RootLayout({ children }) {
                         content: "default"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 37,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -170,13 +224,13 @@ function RootLayout({ children }) {
                         content: "WellMeds"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 38,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/layout.tsx",
-                lineNumber: 33,
+                lineNumber: 74,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
@@ -186,7 +240,7 @@ function RootLayout({ children }) {
                     children,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$toaster$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 44,
+                        lineNumber: 85,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
@@ -205,19 +259,19 @@ function RootLayout({ children }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 45,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/layout.tsx",
-                lineNumber: 42,
+                lineNumber: 83,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/layout.tsx",
-        lineNumber: 32,
+        lineNumber: 73,
         columnNumber: 5
     }, this);
 }
